@@ -21,7 +21,7 @@
 1.下载项目到本地
 ```
     git clone https://github.com/whfzd/houseOfAllThings.git
-```
+
 2.安装express
 ```
     cnpm intall express --save
