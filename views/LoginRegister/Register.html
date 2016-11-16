@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=1">
+    <title>忘记密码</title>
+    <link href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/LoginRegister/register.css">
+</head>
+<body>
+<div class="login-head">
+    <div class="login-head-box">
+        <div class="login-head-cancel">&lt;</div>
+        <div class="login-head-title">注册</div>
+        <div class="login-head-login">登录</div>
+    </div>
+</div>
+<div class="container">
+    <form action="">
+        <div class="login-box">
+
+            <div class="id-box">
+                <i class="id-icon"></i>
+                <span class="id-txt">帐号:</span>
+                <input type="text" class="id-input" placeholder="请输入您的手机号">
+            </div>
+
+            <div class="code-box">
+                <i class="code-icon"></i>
+                <span class="code-txt">验证码:</span>
+                <input type="password" class="code-input" placeholder="请输入验证码">
+                <button class="code-btn" type="button">获取验证码</button>
+            </div>
+
+            <div class="pwd-box">
+                <i class="pwd-icon"></i>
+                <span class="pwd-txt">密码:</span>
+                <input type="password" class="pwd-input" placeholder="请输入新的登录密码">
+            </div>
+
+            <div class="pwd-box">
+                <i class="pwd-icon"></i>
+                <span class="pwd-txt">密码:</span>
+                <input type="password" class="pwd-input1" placeholder="请输入新的登录密码">
+            </div>
+
+            <div class="identity-box">
+                <i class="identity-icon"></i>
+                <span class="identity-txt">身份:</span>
+                <input type="text" class="identity-input" placeholder="经纪人">
+                <div class="identity-box2">
+                    <i class="identity-icon2"></i>
+                    <ul class="identity-ul identity-ul-display">
+                        <li>经纪人</li>
+                        <li>小业主</li>
+                        <li>运营商</li>
+                        <li>代理商</li>
+                        <li>开发商</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="login-btn-box">
+            <button type="button" class="login-btn login-btn-disabled">注册</button>
+        </div>
+        <div class="register-footer">
+            <span>注册即代表同意 <a href="#">《活力矩阵用户协议》</a></span>
+        </div>
+    </form>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $('.id-input').keyup(function () {
+        var val = this.value;
+        if(val.length>11)
+        {
+            val = val.substring(0,11);
+        }
+        val=val.replace(/[^\d]/g,"");
+        this.value = val;
+    })
+
+    $('.code-btn').click(function () {
+        $('.code-btn').addClass("code-btn-disabled");
+        $('.code-btn').attr("disabled",'');
+        var s =60;
+        $('.code-btn').text(s);
+        var times = setInterval(function () {
+            s=s-1;
+            $('.code-btn').text(s);
+            if(s==0){
+                $('.code-btn').removeClass("code-btn-disabled");
+                $('.code-btn').removeAttr("disabled");
+                $('.code-btn').text('获取验证码');
+                clearInterval(times);
+            }
+        },1000);
+    })
+    
+    $('.identity-icon2').click(function () {
+        $(this).toggleClass("identity-icon22");
+        $('.identity-ul').toggle();
+    })
+    $('.identity-ul li').click(
+            function () {
+                $('.identity-input').val(this.innerText);
+                $('.identity-ul').toggle();
+                var val1 = $('.id-input')[0].value;
+                var val2 = $('.code-input')[0].value;
+                var val3 = $('.pwd-input')[0].value;
+                var val4 = $('.pwd-input1')[0].value;
+                var val5 = $('.identity-input')[0].value;
+                if(val1!= '' && val2!= '' && val3!= '' && val4!= '' && val5!= '')
+                {
+                    console.log("aaa");
+                    $('.login-btn').removeClass("login-btn-disabled");
+                    $('.login-btn').removeAttr("disabled");
+                }
+                else{
+                    $('.login-btn').addClass("login-btn-disabled");
+                    $('.login-btn').attr("disabled",'');
+                }
+            }
+    )
+
+    $('.id-input,.code-input,.pwd-input,.pwd-input1,.identity-input').keyup(function () {
+        var val1 = $('.id-input')[0].value;
+        var val2 = $('.code-input')[0].value;
+        var val3 = $('.pwd-input')[0].value;
+        var val4 = $('.pwd-input1')[0].value;
+        var val5 = $('.identity-input')[0].value;
+        if(val1!= '' && val2!= '' && val3!= '' && val4!= '' && val5!= '')
+        {
+            $('.login-btn').removeClass("login-btn-disabled");
+            $('.login-btn').removeAttr("disabled");
+        }
+        else{
+            $('.login-btn').addClass("login-btn-disabled");
+            $('.login-btn').attr("disabled",'');
+        }
+    })
+    $('.login-btn').click(function () {
+        var v=$('.identity-input').val();
+        if(v =='经纪人')
+        {
+            window.location.href="Agent.html";
+        }
+        else if(v =='小业主')
+        {
+            window.location.href="Subtenant.html";
+        }
+        else if(v =='运营商')
+        {
+            window.location.href="Operator.html";
+        }
+        else if(v =='代理商')
+        {
+            window.location.href="commercialAgent.html";
+        }
+        else if(v =='开发商')
+        {
+            window.location.href="Developers.html";
+        }
+    })
+    $(".login-head-cancel,.login-head-login").click(function(  )
+    {
+        window.location='Login.html';
+    })
+
+</script>
+</body>
+</html>

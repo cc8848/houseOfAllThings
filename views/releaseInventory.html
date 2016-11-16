@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=1">
+    <title>Title</title>
+    <link href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/releaseInventory.css">
+
+</head>
+<body>
+<div class="releaseRequirements">
+    <div class="releaseRequirements-head">
+        <div class="releaseRequirements-head-box">
+            <div class="releaseRequirements-head-cancel">取消</div>
+            <div class="releaseRequirements-head-title">发布需求</div>
+            <div class="releaseRequirements-head-release">发布</div>
+        </div>
+    </div>
+    <div class="releaseRequirements-box1">
+        <div class="releaseRequirements-box1-input1">
+            <input type="text" class="input1" placeholder="周杰伦">
+        </div>
+    </div>
+    <div class="releaseRequirements-box2">
+        <div class="releaseRequirements-box2-input2">
+            <input type="text" class="input2" placeholder="18888888888">
+        </div>
+    </div>
+    <div class="releaseRequirements-box3">
+        <div class="releaseRequirements-box3-input3">
+            <textarea name="" id="" cols="30" rows="10" class="input3" placeholder="描述一下您的需求，比如黄埔100-200㎡，5-6元/㎡/天，环境好点，底层，临近地铁"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="release-success release-success-active">
+    <div class="release-success_box">
+        <div class="release-success_box-top">需求发布成功，请稍候</div>
+        <div class="release-success_box-bottom">确定</div>
+    </div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$('.releaseRequirements-head-release').click(function () {
+    $('.release-success').removeClass('release-success-active');
+})
+$('.release-success_box-bottom').click(function () {
+   window.history.back(0);
+})
+$('.releaseRequirements-head-cancel').click(function () {
+    window.history.back(0);
+})
+</script>
+</body>
+</html>
