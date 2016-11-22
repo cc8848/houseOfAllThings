@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=1">
-    <title>忘记密码</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=1">
+    <title>注册</title>
     <link href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../static/css/LoginRegister/register.css">
 </head>
 <body>
 <div class="login-head">
     <div class="login-head-box">
-        <div class="login-head-cancel">&lt;</div>
-        <div class="login-head-title">注册</div>
-        <div class="login-head-login">登录</div>
+        <div class="login-head_div1"><i class="login-head-cancel"></i></div>
+        <div class="login-head-title"><span>注册</span></div>
+        <div class="login-head-login"><span>登录</span></div>
     </div>
 </div>
 <div class="container">
@@ -106,6 +106,7 @@
     $('.identity-ul li').click(
             function () {
                 $('.identity-input').val(this.innerText);
+                $('.identity-icon2').toggleClass("identity-icon22");
                 $('.identity-ul').toggle();
                 var val1 = $('.id-input')[0].value;
                 var val2 = $('.code-input')[0].value;
@@ -114,7 +115,6 @@
                 var val5 = $('.identity-input')[0].value;
                 if(val1!= '' && val2!= '' && val3!= '' && val4!= '' && val5!= '')
                 {
-                    console.log("aaa");
                     $('.login-btn').removeClass("login-btn-disabled");
                     $('.login-btn').removeAttr("disabled");
                 }

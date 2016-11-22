@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=1">
 	<title>主页</title>
 	<link href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
@@ -43,17 +43,17 @@
 		<!--搜索-->
 		<div class="search">
 			<i class="banner_icon_search"></i>
-			<span class="search-text">挑好房，上活力矩阵</span>
+			<span class="search-text">挑好房，上万事屋</span>
 		</div>
 		<!--内容-->
 		<div class="content-msg">
-			<div class="content-msg-search content-msg-search-fixed">
+			<div class="content-msg-search content-msg-search-fixed container-display">
 				<div class="city-select2">
 					<span class="city-select-text2">上海</span><i class="city-select-icon"></i>
 				</div>
 				<div class="search2">
 					<i class="banner_icon_search"></i>
-					<span class="search-text2">挑好房，上活力矩阵</span>
+					<span class="search-text2">挑好房，上万事屋</span>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -75,7 +75,7 @@
 						</li>
 						<li class="context-msg-right">
 							<div class="context-msg-right-container">
-								<div class="context-msg-name"><span class="context-msg-name-text">东京金融中心</span><i class="collect_icon_nor"></i></div>
+								<div class="context-msg-name"><span class="context-msg-name-text">东京金融中心</span><i class="collect_icon_nor "></i></div>
 								<div class="context-msg-address">浦东-八佰伴</div>
 								<div class="context-msg-type">商务中心</div>
 								<div class="context-msg-price"><span class="price-type">&yen;</span><span class="price">7</span>元/平米/天起 <span>佣金：1个月</span></div>
@@ -165,9 +165,7 @@
 	<!--预约-->
 	<div class="container container-display">
 		<div class="appointment-head">
-			<div class="appointment-head-box">
 				<span class="appointment">预约</span>
-			</div>
 		</div>
 		<div class="appointment-content">
 			<div class="appointment-content1">
@@ -411,8 +409,9 @@
 	<div class="container container-display">
 		<div class="me-head">
 			<div class="me-head-box">
-				<span class="me">我</span>
-				<i class="nav_set_icon"></i>
+				<div class="me-head-left"></div>
+				<div  class="me"><span>我</span></div>
+				<div class="me-head-right"><i class="nav_set_icon"></i></div>
 			</div>
 		</div>
 		<!--未登录-->
@@ -473,6 +472,7 @@
 	//创建轮播图
 	var mySwiper = new Swiper('.swiper-container', {
 		autoplay: 5000,//可选选项，自动滑动
+		loop : true, //循环
 		pagination : '.swiper-pagination' //设置底部分页
 	})
 
@@ -480,9 +480,8 @@
 	$(".home").scroll(function()
 	{
 		var chTop = $( ".content-msg-head" ).offset().top;
-//		console.log(chTop);
 		if(chTop<=74)
-		{
+		{	$(".content-msg-search").removeClass("container-display");
 			$(".content-msg-head").addClass("content-msg-head-fixed");
 			$(".content-box").addClass("content-box-fixed");
 			$(".swiper-container").hide();
@@ -602,6 +601,11 @@
 	{
 		window.location='LoginRegister/Login.html';
 	})
+
+//	点击收藏
+		$('.collect_icon_nor').click(function () {
+			$(this).toggleClass('collect_icon_nor-active')
+		})
 	</script>
 </body>
 </html>

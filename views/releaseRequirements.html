@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=1">
 	<title>Title</title>
 	<link href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../static/css/releaseRequirements.css">
@@ -127,25 +127,25 @@
 			<p class="hI-text">请选择发布房源的属性</p>
 			<div class="hI-elements-box">
 				<div class="hI-elements">
-					<label><i class="hI-radio"></i>整层</label>
+					<label><i class="hI-radio"></i><span>整层</span></label>
 				</div>
 				<div class="hI-elements">
-					<label><i class="hI-radio-active"></i>整栋</label>
+					<label><i class="hI-radio"></i><span>整栋</span></label>
 				</div>
 				<div class="hI-elements">
-					<label><i class="hI-radio-active"></i>众创空间</label>
+					<label><i class="hI-radio"></i><span>众创空间</span></label>
 				</div>
 				<div class="hI-elements">
-					<label><i class="hI-radio-active"></i>创意产业园</label>
+					<label><i class="hI-radio"></i><span>创意产业园</span></label>
 				</div>
 				<div class="hI-elements">
-					<label><i class="hI-radio-active"></i>商务中心</label>
+					<label><i class="hI-radio"></i><span>商务中心</span></label>
 				</div>
 				<div class="hI-elements">
-					<label><i class="hI-radio-active"></i>写字楼</label>
+					<label><i class="hI-radio"></i><span>写字楼</span></label>
 				</div>
 				<div class="hI-elements">
-					<label><i class="hI-radio-active"></i>工位</label>
+					<label><i class="hI-radio"></i><span>工位</span></label>
 				</div>
 			</div>
 			<div class="hI-content-box">
@@ -160,7 +160,7 @@
 				</div>
 				<div class="hI-content1">
 					<span class="hI-content1-head">交付日期</span><div class="hI-content1-c1"><input type="text" class="hI-content1-input1" value="2015-06-21"></div><div class="hI-elements">
-					<label><i class="hI-radio"></i>是否现房</label>
+					<label><i class="hI-radio"></i><span>是否现房</span></label>
 				</div>
 				</div>
 				<div class="hI-content1">
@@ -168,12 +168,12 @@
 				</div>
 				<div class="hI-content1">
 					<span class="hI-content1-head">付款方式</span><div class="hI-content1-c1"><input type="text" class="hI-content1-input1" value="押三付一"></div><div class="hI-elements">
-					<label><i class="hI-radio"></i>是否包含发票</label>
+					<label><i class="hI-radio"></i><span>是否包含发票</span></label>
 				</div>
 				</div>
 				<div class="hI-content1">
 					<span class="hI-content1-head">是否结佣</span><div class="hI-content1-c1"><input type="text" class="hI-content1-input1" value="一个月"></div><div class="hI-elements">
-					<label><i class="hI-radio"></i>是</label>
+					<label><i class="hI-radio"></i><span>是</span></label>
 				</div>
 				</div>
 				<div class="hI-content1">
@@ -184,7 +184,7 @@
 				</div>
 				<div class="hI-content2">
 					<span class="hI-content1-head">房源简介</span><div class="hI-content1-c3">
-					<textarea class="hI-content1-textarea">房源简介</textarea>
+					<textarea  class="hI-content1-textarea">房源简介</textarea>
 				</div>
 				</div>
 			</div>
@@ -193,6 +193,7 @@
 				<div class="hI-add-box">
 					<span class="add-text">添加图片</span>
 				</div>
+				<div><input type="file" id="file-img" class="display"></div>
 			</div>
 		</div>
 		<!--确认发布btn-->
@@ -224,7 +225,7 @@
     <div class="release-add release-success-active">
         <div class="releaseRequirements-head">
             <div class="releaseRequirements-head-box">
-                <div class="releaseRequirements-head-cancel">&lt;</div>
+                <div class="releaseRequirements-head-cancel">取消</div>
                 <div class="releaseRequirements-head-title">新增楼盘</div>
             </div>
         </div>
@@ -278,6 +279,11 @@
 
 	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 	<script>
+
+		$('.hI-elements label').click(function () {
+			$(this).children('i').toggleClass('hI-radio-active');
+		})
+
 		$(".releaseRequirements-head-cancel").click(function () {
 			$('.release-cancel').removeClass('release-success-active');
 		})
@@ -322,6 +328,23 @@
 			$('.release-add-success').addClass('release-success-active');
 			$('.release-add').addClass('release-success-active');
 		})
+
+		//        file
+		$('.hI-add-box').click(function () {
+			document.getElementById('file-img').click();
+		})
+		document.getElementById('file-img').onchange = function () {
+			let file = document.getElementById('file-img').files[0];
+			let fr = new FileReader()
+			fr.readAsDataURL(file);
+			fr.onload = function () {
+				let src = this.result;
+				document.getElementsByClassName('hI-add-box')[0].style.background='url('+ src +') no-repeat center';
+				document.getElementsByClassName('hI-add-box')[0].style.backgroundSize='75px 75px';
+				$('.add-text').addClass('display');
+			}
+
+		}
 	</script>
 </body>
 </html>

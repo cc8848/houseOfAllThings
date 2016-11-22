@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>message</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+	<title>预约详情</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=0">
 	<link rel="stylesheet" href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css">
 	<link rel="stylesheet" href="../static/css/book.css">
 </head>
@@ -11,10 +11,17 @@
 
 <!--取消预订-->
 <div class="book-cancel display">
-		<div class="head">
-			<span class="btn-back clear"><img src="../static/images/nav_back_icon2@2x.png" height="22px"></span>
+	<div class="head">
+		<div>
+			<span class="btn-back"></span>
+		</div>
+		<div>
 			<span class="title">预约详情</span>
 		</div>
+		<div>
+
+		</div>
+	</div>
 		<div>
 			<div class="detail-title">预约人</div>
 			<div class="detail-list user">
@@ -111,9 +118,9 @@
 <!--预约改期-->
 <div class="change-page">
 	<div class="head">
-		<span class="btn-cancel clear">取消</span>
-		<span class="title">预约改期</span>
-		<span class="btn-sure">确定</span>
+		<div class="yygq-f1"> <span class="btn-cancel clear">取消</span></div>
+		<div class="yygq-f2"><span class="head-title">预约改期</span></div>
+		<div class="yygq-f3"><span class="btn-sure">确定</span></div>
 	</div>
 	<div class="list-box">
 		<div class="detail-title">预约人</div>
@@ -151,8 +158,15 @@
 <!--订单详情-->
 <div class="order-detail">
 	<div class="head">
-		<span class="btn-back clear"><img src="../static/images/nav_back_icon2@2x.png" height="22px"></span>
-		<span class="title">订单详情</span>
+		<div>
+			<span class="btn-back"></span>
+		</div>
+		<div>
+			<span class="title">订单详情</span>
+		</div>
+		<div>
+
+		</div>
 	</div>
 	<div class="list-box">
 		<div class="detail-title">预约人</div>
@@ -192,7 +206,7 @@
 				<div class="status">已接单，待反馈</div>
 			</div>
 		</div>
-		<div class="tab-bottom">
+		<div class="tab-bottom" style="display: none">
 			<div class="date-change">改期</div>
 			<div class="reached">达成</div>
 			<div class="cancel">取消</div>
@@ -223,10 +237,17 @@
 </div>
 
 <!--预约详情-->
-<div class="book-detail">
+<div  class="book-detail">
 	<div class="head">
-		<span class="btn-back clear"><img src="../static/images/nav_back_icon2@2x.png" height="22px"></span>
-		<span class="title">预约详情</span>
+		<div>
+			<span class="btn-back"></span>
+		</div>
+		<div>
+			<span class="title">预约详情</span>
+		</div>
+		<div>
+
+		</div>
 	</div>
 	<div class="list-box">
 		<div class="detail-title">预约人</div>
@@ -314,6 +335,7 @@ $( function()
 		$( ".book-cancel" ).addClass('display');
 		$('.order-detail').addClass('display');
 		$('.book-detail').removeClass('display');
+		$( ".tab-bottom" ).removeClass('display');
 	} );
 
 	$( ".btn-accept" ).click( function( e )
@@ -328,7 +350,8 @@ $( function()
 //	预约看房成功，点击返回
 	$( ".back" ).click( function()
 	{
-		window.location='index.html';
+//		window.location='index.html';
+		$('.success-page').css("display", "none");
 	} );
 
 	$( ".detail-check" ).click( function()
@@ -379,7 +402,7 @@ $( function()
 	} );
 	$( ".reached" ).click( function()
 	{
-		$( ".upload-page" ).css( "display", "block" );
+//		$( ".upload-page" ).css( "display", "block" );
 	} );
 	$( ".cancel-btn" ).click( function()
 	{
@@ -396,10 +419,12 @@ $( function()
 	$( ".cancel" ).click( function()
 	{
 		$( ".book-cancel" ).removeClass('display');
+		$( ".tab-bottom" ).addClass('display');
 	} );
 	$( ".book-cancel .btn-back" ).click( function()
 	{
 		$( ".book-cancel" ).addClass('display');
+
 	} );
 
 	$( ".cancel-back" ).click( function()

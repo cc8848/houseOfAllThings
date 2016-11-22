@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=1">
+    <title>忘记密码</title>
+    <link href="//cdn.bootcss.com/weui/1.0.2/style/weui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/LoginRegister/commercialAgent.css">
+</head>
+<body>
+<div class="agent-head">
+    <div class="agent-head-box">
+        <div class="agent-head-cancel">&lt;</div>
+        <div class="agent-head-title">代理商</div>
+    </div>
+</div>
+<div class="container">
+    <form action="">
+        <div class="required">
+            <div class="required-head">必填项</div>
+            <div class="required-box">
+                <div class="required-content1-box">
+                    <div class="required-content1-c">添加头像</div>
+                </div>
+                <div class="required-content2">
+                    <input class="required-content2-input1" placeholder="公司名">
+                    <input class="required-content2-input1" placeholder="企业邮箱/公司总机">
+                    <input class="required-content2-input1" placeholder="联系人">
+                    <input class="required-content2-input1" placeholder="联系方式">
+                </div>
+            </div>
+        </div>
+        <div class="optional">
+            <div class="optional-head">选填项</div>
+            <div class="optional-box">
+                <input class="required-content2-input1" placeholder="微信号码">
+                <div class="optional-content1-box">
+                    <div class="optional-content1">
+                        微信二维码
+                    </div>
+                    <div class="optional-content1">
+                        营业执照
+                    </div>
+                    <div class="optional-content1">
+                        楼宇产证
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agent-btn-box">
+            <button type="button" class="agent-btn agent-btn-disabled">完成</button>
+        </div>
+    </form>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $('.required-content2-input1').keyup(function () {
+        var val1 = $('.required-content2-input1').eq(0).val();
+        var val2 = $('.required-content2-input1').eq(1).val();
+        var val3 = $('.required-content2-input1').eq(2).val();
+        var val4 = $('.required-content2-input1').eq(3).val();
+        if(val1!= '' && val2!= '' && val3!= '' && val4 != '')
+        {
+            $('.agent-btn').removeClass("agent-btn-disabled");
+            $('.agent-btn').removeAttr("disabled");
+        }
+        else{
+            $('.agent-btn').addClass("agent-btn-disabled");
+            $('.agent-btn').attr("disabled",'');
+        }
+    })
+
+    $(".agent-btn").click(function(  )
+    {
+        window.location='../index.html';
+    })
+    $(".agent-head-cancel").click(function(  )
+    {
+        window.location='Register.html';
+    })
+</script>
+</body>
+</html>

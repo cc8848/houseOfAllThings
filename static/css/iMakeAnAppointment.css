@@ -1,1 +1,95 @@
-.container,.releaseRequirements-head-cancel{position:absolute}.clear:after{content:"";display:block;height:0;visibility:hidden;clear:both}.container{background:#efeff4;top:64px;right:0;left:0;bottom:0;overflow-y:auto}.releaseRequirements-head{width:100%;height:64px;background:#fff;text-align:center;overflow:hidden}.demand-details,.demand-type{height:20px;border-radius:5px}.releaseRequirements-head-box{padding:0 10px;margin-top:30px}.releaseRequirements-head-title{width:100%;font-size:18px}.demand{margin:10px 12px;background:#fff;border-radius:5px}.demand-head{padding:8px 10px}.demand-title{font-size:16px;color:#333;display:block;float:left}.demand-type{font-size:10px;padding:0 10px;color:#999;display:block;float:right}.demand-content{border-top:1px solid #999;padding:8px 10px;font-size:10px;color:#999}.demand-footer{padding:0 10px 5px 0}.demand-details{font-size:10px;background:#efeff4;width:80px;text-align:center;padding:0 10px;float:left;margin-left:calc(50% - 40px)}
+.clear:after{
+     content: "";
+     display: block;
+     height: 0;
+     visibility: hidden;
+     clear: both;
+ }
+.container{
+    background: #efeff4;
+    position: absolute;
+    top:64px;
+    right:0;
+    left:0;
+    bottom:0;
+    overflow-y:auto;
+}
+
+.releaseRequirements-head{
+    width: 100%;
+    height: 64px;
+    background:#ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.releaseRequirements-head-box{
+    padding:0 10px;
+    flex:1;
+    display: flex;
+
+}
+.releaseRequirements-head-box div{
+    flex: 1;
+}
+.releaseRequirements-head_div1{
+    display: flex;
+    align-items: center;
+}
+.releaseRequirements-head-cancel{
+    background:url('../../static/images/nav_back_icon2@2x.png') no-repeat center;
+    background-size:10px 16px;
+    display: block;
+    width:20px;
+    height:20px;
+}
+.releaseRequirements-head-title{
+    width: 100%;
+    font-size: 18px;
+}
+
+.demand{
+    margin:10px 12px;
+    background:#fff;
+    border-radius: 5px;
+}
+.demand-head{
+    padding:8px 10px;
+}
+.demand-title{
+    font-size: 16px;
+    color: #333333;
+    display:block;
+    float: left;
+
+}
+.demand-type{
+    font-size: 10px;
+    padding:0 10px;
+    color: #999;
+    display:block;
+    float: right;
+    border-radius: 5px;
+    height: 20px;
+}
+
+.demand-content{
+    border-top:1px solid #999;
+    padding:8px 10px;
+    font-size: 10px;
+    color: #999;
+}
+.demand-footer{
+    padding: 0 10px 5px 0;
+}
+.demand-details{
+    font-size: 10px;
+    background: #efeff4;
+    width: 80px;
+    height:20px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0px 10px;
+    float: left;
+    margin-left:calc(50% - 40px);
+}
