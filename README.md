@@ -26,9 +26,9 @@
 	```
 		git clone https://github.com/whfzd/houseOfAllThings.git
 	```
-	2. 安装express
+	2. 安装环境依赖
 	```
-		cnpm intall express --save
+		npm install
 	```
 	3. 运行app.js
 	```
@@ -36,6 +36,6 @@
 	```
 	4. 访问网址
 	```
-		localhost:9888/index.html
+		localhost:16081/index.html
 	```
 
